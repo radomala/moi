@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="InterfaceCxf" targetNamespace="http://interfacecxf.mediatheque.postegre/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://interfacecxf.mediatheque.postegre/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://interfacecxf.mediatheque.postegre/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://interfacecxf.mediatheque.postegre/">
+  <xs:element name="add" type="tns:add"/>
+  <xs:element name="addResponse" type="tns:addResponse"/>
+  <xs:element name="delete" type="tns:delete"/>
+  <xs:element name="deleteAllMembre" type="tns:deleteAllMembre"/>
+  <xs:element name="deleteAllMembreResponse" type="tns:deleteAllMembreResponse"/>
+  <xs:element name="deleteResponse" type="tns:deleteResponse"/>
+  <xs:element name="edit" type="tns:edit"/>
+  <xs:element name="editResponse" type="tns:editResponse"/>
+  <xs:element name="existMembre" type="tns:existMembre"/>
+  <xs:element name="existMembreResponse" type="tns:existMembreResponse"/>
+  <xs:element name="getMembreAll" type="tns:getMembreAll"/>
+  <xs:element name="getMembreAllResponse" type="tns:getMembreAllResponse"/>
+  <xs:element name="getMembreByMail" type="tns:getMembreByMail"/>
+  <xs:element name="getMembreByMailResponse" type="tns:getMembreByMailResponse"/>
+  <xs:element name="getMembreByName" type="tns:getMembreByName"/>
+  <xs:element name="getMembreByNameResponse" type="tns:getMembreByNameResponse"/>
+  <xs:complexType name="getMembreByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMembreByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:membre"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="membre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adresse" type="xs:string"/>
+      <xs:element minOccurs="0" name="mail" type="xs:string"/>
+      <xs:element minOccurs="0" name="motdepasse" type="xs:string"/>
+      <xs:element minOccurs="0" name="nom" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="sexe" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existMembre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:membre"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existMembreResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delete">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="deleteAllMembre">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="deleteAllMembreResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="add">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:membre"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMembreByMail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMembreByMailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:membre"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="edit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:membre"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMembreAll">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMembreAllResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MediathequeException" type="tns:MediathequeException"/>
+  <xs:complexType name="MediathequeException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMembreAllResponse">
+    <wsdl:part name="parameters" element="ns1:getMembreAllResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMembreByMailResponse">
+    <wsdl:part name="parameters" element="ns1:getMembreByMailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMembreByMail">
+    <wsdl:part name="parameters" element="ns1:getMembreByMail">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editResponse">
+    <wsdl:part name="parameters" element="ns1:editResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="ns1:deleteResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMembreAll">
+    <wsdl:part name="parameters" element="ns1:getMembreAll">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMembreByNameResponse">
+    <wsdl:part name="parameters" element="ns1:getMembreByNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMembreByName">
+    <wsdl:part name="parameters" element="ns1:getMembreByName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAllMembreResponse">
+    <wsdl:part name="parameters" element="ns1:deleteAllMembreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="existMembreResponse">
+    <wsdl:part name="parameters" element="ns1:existMembreResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MediathequeException">
+    <wsdl:part name="MediathequeException" element="ns1:MediathequeException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="existMembre">
+    <wsdl:part name="parameters" element="ns1:existMembre">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part name="parameters" element="ns1:delete">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAllMembre">
+    <wsdl:part name="parameters" element="ns1:deleteAllMembre">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="add">
+    <wsdl:part name="parameters" element="ns1:add">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResponse">
+    <wsdl:part name="parameters" element="ns1:addResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="edit">
+    <wsdl:part name="parameters" element="ns1:edit">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="InterfaceCxf">
+    <wsdl:operation name="getMembreByName">
+      <wsdl:input name="getMembreByName" message="ns1:getMembreByName">
+    </wsdl:input>
+      <wsdl:output name="getMembreByNameResponse" message="ns1:getMembreByNameResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="existMembre">
+      <wsdl:input name="existMembre" message="ns1:existMembre">
+    </wsdl:input>
+      <wsdl:output name="existMembreResponse" message="ns1:existMembreResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input name="delete" message="ns1:delete">
+    </wsdl:input>
+      <wsdl:output name="deleteResponse" message="ns1:deleteResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAllMembre">
+      <wsdl:input name="deleteAllMembre" message="ns1:deleteAllMembre">
+    </wsdl:input>
+      <wsdl:output name="deleteAllMembreResponse" message="ns1:deleteAllMembreResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input name="add" message="ns1:add">
+    </wsdl:input>
+      <wsdl:output name="addResponse" message="ns1:addResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMembreByMail">
+      <wsdl:input name="getMembreByMail" message="ns1:getMembreByMail">
+    </wsdl:input>
+      <wsdl:output name="getMembreByMailResponse" message="ns1:getMembreByMailResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="edit">
+      <wsdl:input name="edit" message="ns1:edit">
+    </wsdl:input>
+      <wsdl:output name="editResponse" message="ns1:editResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMembreAll">
+      <wsdl:input name="getMembreAll" message="ns1:getMembreAll">
+    </wsdl:input>
+      <wsdl:output name="getMembreAllResponse" message="ns1:getMembreAllResponse">
+    </wsdl:output>
+      <wsdl:fault name="MediathequeException" message="ns1:MediathequeException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
